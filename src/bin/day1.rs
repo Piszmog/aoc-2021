@@ -1,5 +1,7 @@
+use aoc_2021::shared;
+
 fn main() {
-    println!("Hello, world!");
+    println!("{}", shared::hello_world());
 }
 
 #[cfg(test)]
