@@ -11,7 +11,8 @@ fun printElapsedTime(start: Instant) {
     println("Duration: ${Duration.between(start, Instant.now()).toMillis()}ms")
 }
 
-fun getCSVParser(filePath: String): CSVParser {
+fun getCSVParser(filePath: String, delimiter: String = ","): CSVParser {
     val bufferedReader = BufferedReader(FileReader(filePath))
-    return CSVParser(bufferedReader, CSVFormat.DEFAULT)
+    val csvFormat = CSVFormat.Builder.create(CSVFormat.DEFAULT).setDelimiter(delimiter[0]).build()
+    return CSVParser(bufferedReader, csvFormat)
 }
