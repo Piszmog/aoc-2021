@@ -12,7 +12,8 @@ struct Course {
 
 fn main() {
     let start = Instant::now();
-    let mut reader = shared::get_csv_reader("../inputs/day2.txt", false, b' ').unwrap();
+    let args = shared::get_args();
+    let mut reader = shared::get_csv_reader(args[0].as_str(), false, b' ').unwrap();
     let courses: Vec<Course> = reader.deserialize().map(|result| {
         let course: Course = result.unwrap();
         course
