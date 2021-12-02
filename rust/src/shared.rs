@@ -15,7 +15,7 @@ pub fn get_csv_reader(file_path: &str, has_headers: bool, delimiter: u8) -> Resu
     Ok(reader)
 }
 
-pub fn print_duration(start: Instant) {
+pub fn print_elapsed_time(start: Instant) {
     let duration = Instant::now().duration_since(start);
     println!("Duration: {:?}", duration);
 }

@@ -19,7 +19,7 @@ fn main() {
     println!("Part 1: {}", part_1_solution);
     let part_2_solution = part_2(&records);
     println!("Part 2: {}", part_2_solution);
-    shared::print_duration(start);
+    shared::print_elapsed_time(start);
 }
 
 fn part_1(records: &Vec<i32>) -> i32 {
