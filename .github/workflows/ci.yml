@@ -5,9 +5,12 @@ on:
   pull_request:
     branches: [ main ]
 jobs:
-  build:
-    name: Build
+  rust:
+    name: Rust
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: rust/
     steps:
       - uses: actions/checkout@v2
       - uses: actions/cache@v2
