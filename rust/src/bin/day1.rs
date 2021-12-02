@@ -58,7 +58,7 @@ fn part_2(records: &Vec<i32>) -> i32 {
 }
 
 #[cfg(test)]
-mod tests {
+mod day1_tests {
     use crate::{part_1, part_2};
 
     #[test]
