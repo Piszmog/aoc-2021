@@ -5,8 +5,7 @@ import java.time.Instant
 fun main(args: Array<String>) {
     val start = Instant.now()
     val parser = getCSVParser(args[0])
-    val depths = mutableListOf<Int>()
-    parser.map { it[0].toInt() }.forEach { depths.add(it) }
+    val depths = parser.map { it[0].toInt() }.toList()
 
     val part1Solution = day1Part1(depths)
     println("Part 1: $part1Solution")
