@@ -13,7 +13,7 @@ fun main(args: Array<String>) {
     val part2Solution = day1Part2(depths)
     println("Part 2: $part2Solution")
 
-    printDuration(start)
+    printElapsedTime(start)
 }
 
 fun day1Part1(input: List<Int>): Int {

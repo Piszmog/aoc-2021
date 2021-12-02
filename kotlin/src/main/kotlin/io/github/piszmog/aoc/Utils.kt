@@ -7,7 +7,7 @@ import java.io.FileReader
 import java.time.Duration
 import java.time.Instant
 
-fun printDuration(start: Instant) {
+fun printElapsedTime(start: Instant) {
     println("Duration: ${Duration.between(start, Instant.now()).toMillis()}ms")
 }
 
