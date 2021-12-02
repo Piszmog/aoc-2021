@@ -4,10 +4,10 @@ use std::time::Instant;
 use aoc_2021::shared;
 
 fn main() {
+    let start = Instant::now();
     let args = shared::get_args();
     let file_path = args[0].as_str();
 
-    let start = Instant::now();
     let mut records: Vec<i32> = Vec::new();
     let mut reader = shared::get_csv_reader(file_path, false, b',').unwrap();
     for result in reader.records() {
