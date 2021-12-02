@@ -31,3 +31,20 @@ jobs:
         with:
           command: test
           args: --manifest-path ${{ env.working-directory }}/Cargo.toml
+  kotlin:
+    name: Kotlin
+    runs-on: ubuntu-latest
+    env:
+      working-directory: kotlin
+    steps:
+      - uses: actions/checkout@v2
+      - name: Setup Java
+        uses: actions/setup-java@v2
+        with:
+          distribution: 'adopt'
+          java-package: jdk
+          java-version: 16
+          cache: maven
+      - name: Compile the Project
+        run: mvn -B package --file pom.xml
+        working-directory: ${{ env.working-directory }}
