@@ -6,13 +6,12 @@ import kotlin.test.assertEquals
 class Day3Test {
     @Test
     fun `Day 3 Part 1`() {
-        val input = getInput()
-        assertEquals(198, day3Part1(input))
+        assertEquals(198, day3Part1(getInput()))
     }
 
     @Test
     fun `Day 3 Part 2`() {
-        assertEquals(230, 1)
+        assertEquals(230, day3Part2(getInput()))
     }
 
     private fun getInput() =

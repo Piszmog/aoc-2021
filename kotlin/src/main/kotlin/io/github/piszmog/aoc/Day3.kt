@@ -10,8 +10,8 @@ fun main(args: Array<String>) {
 
     val part1Solution = day3Part1(report)
     println("Part 1: $part1Solution")
-//    val part2Solution = day3Part2(depths)
-//    println("Part 2: $part2Solution")
+    val part2Solution = day3Part2(report)
+    println("Part 2: $part2Solution")
 
     printElapsedTime(start)
 }
@@ -33,7 +33,37 @@ fun day3Part1(input: List<List<Boolean>>): Int {
     return binaryToDecimal(gammaRate) * binaryToDecimal(epsilonRate)
 }
 
-fun day3Part2() {
+fun day3Part2(input: List<List<Boolean>>) =
+    getRating(input, true) * getRating(input, false)
+
+private fun getRating(input: List<List<Boolean>>, bitType: Boolean): Int {
+    var data = input
+    var binaryBool = listOf<Boolean>()
+    var mostCommon = 0
+    for (col in 0..input[0].size) {
+        if (data.size == 1) {
+            binaryBool = data.first()
+            break
+        }
+        if (data.size == 2) {
+            binaryBool = data.first { it[col] == bitType }
+            break
+        }
+        data.forEach { row ->
+            when (row[col]) {
+                true -> mostCommon++
+                false -> mostCommon--
+            }
+        }
+        val mostCommonBit = when (bitType) {
+            true -> if (mostCommon > 0) true else mostCommon >= 0
+            false -> if (mostCommon > 0) false else mostCommon < 0
+        }
+        mostCommon = 0
+        data = data.filter { it[col] == mostCommonBit }.toList()
+    }
+    val binary = binaryBool.map { if (it) 1 else 0 }.toIntArray()
+    return binaryToDecimal(binary)
 }
 
 private fun binaryToDecimal(input: IntArray): Int {
