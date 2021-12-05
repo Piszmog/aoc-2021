@@ -4,7 +4,8 @@ use aoc_2021::shared;
 
 fn main() {
     let start = Instant::now();
-    let mut reader = shared::get_csv_reader("../inputs/day3.csv", false, b' ').unwrap();
+    let args = shared::get_args();
+    let mut reader = shared::get_csv_reader(args[0].as_str(), false, b' ').unwrap();
     let input: Vec<Vec<bool>> = reader.records()
         .map(|rec| rec.unwrap().as_slice().chars().collect::<Vec<char>>()
             .iter().map(|c| *c == '1').collect::<Vec<bool>>())
