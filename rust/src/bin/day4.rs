@@ -6,10 +6,11 @@ use aoc_2021::shared;
 
 fn main() {
     let start = Instant::now();
+    let args = shared::get_args();
     let mut row = 0;
     let mut num_line: String = FromStr::from_str("").unwrap();
     let mut board_lines: Vec<String> = Vec::new();
-    shared::get_file_reader("../inputs/day4.txt").unwrap()
+    shared::get_file_reader(args.get(0).unwrap()).unwrap()
         .lines().for_each(|line| {
         if row == 0 {
             num_line = line.unwrap();
