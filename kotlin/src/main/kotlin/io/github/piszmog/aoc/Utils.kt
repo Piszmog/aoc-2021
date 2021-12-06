@@ -16,3 +16,7 @@ fun getCSVParser(filePath: String, delimiter: String = ","): CSVParser {
     val csvFormat = CSVFormat.Builder.create(CSVFormat.DEFAULT).setDelimiter(delimiter[0]).build()
     return CSVParser(bufferedReader, csvFormat)
 }
+
+fun getFileReader(filePath: String): BufferedReader {
+    return BufferedReader(FileReader(filePath))
+}

@@ -5,7 +5,7 @@ import kotlin.math.pow
 
 fun main(args: Array<String>) {
     val start = Instant.now()
-    val parser = getCSVParser("inputs/day3.csv")
+    val parser = getCSVParser(args[0])
     val report = parser.map { it -> it[0].toCharArray().map { it == '1' } }.toList()
 
     val part1Solution = day3Part1(report)
