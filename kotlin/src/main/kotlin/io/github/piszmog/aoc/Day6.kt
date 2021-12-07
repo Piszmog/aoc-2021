@@ -1,6 +1,16 @@
 package io.github.piszmog.aoc
 
+import java.time.Instant
+
 fun main(args: Array<String>) {
+    val start = Instant.now()
+
+    val fish = getFish(getFileReader(args[0]).lines().findFirst().get())
+
+    println("Part 1: ${getFishPop(fish, 80)}")
+    println("Part 2: ${getFishPop(fish, 256)}")
+
+    printElapsedTime(start)
 }
 
 private const val CYCLES = 9
