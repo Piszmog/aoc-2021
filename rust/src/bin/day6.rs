@@ -7,7 +7,8 @@ use aoc_2021::shared;
 fn main() {
     let start = Instant::now();
 
-    let fish = get_fish(shared::get_file_reader("../inputs/day6.txt").unwrap()
+    let args = shared::get_args();
+    let fish = get_fish(shared::get_file_reader(args.get(0).unwrap()).unwrap()
         .lines().next().unwrap().unwrap());
 
     let part_1_solution = get_fish_pop(fish.clone(), 80);
